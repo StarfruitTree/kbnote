@@ -7,8 +7,8 @@ function createWindow() {
   const window = new BrowserWindow({
     webPreferences: {
       devTools: isDev,
-      nodeIntegration: isDev
-    }
+      nodeIntegration: isDev,
+    },
   })
 
   if (isDev) {

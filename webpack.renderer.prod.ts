@@ -8,24 +8,23 @@ export default {
   entry: './src/renderer/index.tsx',
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'renderer.js'
+    filename: 'renderer.js',
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json']
+    extensions: ['.tsx', '.ts', '.js', '.json'],
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
-      }
-    ]
+        loader: 'ts-loader',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html'
-    })
+      template: './public/index.html',
+    }),
   ],
-  
 } as Configuration

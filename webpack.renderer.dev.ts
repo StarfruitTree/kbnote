@@ -6,7 +6,7 @@ export default {
   target: 'web',
   entry: './src/renderer/index.tsx',
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json']
+    extensions: ['.tsx', '.ts', '.js', '.json'],
   },
   devtool: 'source-map',
   module: {
@@ -14,18 +14,17 @@ export default {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
-      }
-    ]
+        loader: 'ts-loader',
+      },
+    ],
   },
   devServer: {
     port: 3000,
-    headers: { 'Access-Control-Allow-Origin': '*' }
+    headers: { 'Access-Control-Allow-Origin': '*' },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html'
-    })
+      template: './public/index.html',
+    }),
   ],
-  
 } as Configuration

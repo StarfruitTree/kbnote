@@ -10,7 +10,9 @@
     "build:main": "webpack --config webpack.main.ts --mode production",
     "build:renderer": "webpack --config webpack.renderer.prod.ts",
     "build": "npm run build:main && npm run build:renderer",
-    "start": "npm run build && electron ."
+    "start": "npm run build && electron .",
+    "lint": "eslint src --ext ts,tsx --fix",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -23,15 +25,48 @@
     "url": "https://github.com/StarfruitTree/kbnote/issues"
   },
   "homepage": "https://github.com/StarfruitTree/kbnote#readme",
+  "jest": {
+    "preset": "ts-jest",
+    "setupFiles": [
+      "<rootDir>/enzyme.config.ts"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testMatch": [
+      "**/*.spec.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ]
+  },
   "dependencies": {
     "electron": "^9.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/react-dom": "^16.9.8",
     "@types/webpack-dev-server": "^3.11.0",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.5",
     "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.2.2",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.4",
     "ts-loader": "^8.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7",
